@@ -13,7 +13,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     # keep-sorted start
-    "aeromancy @ git+ssh://git@github.com/quant-aq/aeromancy.git",
+    "aeromancy @ git+https://github.com/quant-aq/aeromancy",
     "joblib>=1.4.2",
     "loguru>=0.7.2",
     "scikit-learn>=1.5.1",
