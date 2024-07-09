@@ -5,13 +5,13 @@
 groups = ["default", "dev", "doc"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.2"
-content_hash = "sha256:5ce575441da7f099a04f8d8bba556c2885bc2a0ea14c7b10a390e2e767dd7807"
+content_hash = "sha256:c7584f464a37e14316e5829d7f3b97bf00e0c0d232cd14629b2294a8797c90d7"
 
 [[package]]
 name = "aeromancy"
 version = "0.2.1.dev6"
 requires_python = ">=3.10.5"
-git = "ssh://git@github.com/quant-aq/aeromancy.git"
+git = "https://github.com/quant-aq/aeromancy"
 revision = "3694a0378a61b6f995f0a122666c42f40c5089bf"
 summary = "A framework for performing reproducible AI and ML."
 groups = ["default"]
