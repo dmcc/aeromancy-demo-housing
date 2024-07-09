@@ -1,0 +1,37 @@
+# General Mac OS X
+*.DS_Store
+
+# General Python ignores
+*.py[cod]
+__pycache__/
+dist/
+build/
+.coverage*
+*.egg-info/
+pip-wheel-metadata/
+.pytest_cache/
+.mypy_cache/
+.venv/
+.ruff_cache/
+
+# mkdocs specific
+docs/_build/
+docs/site
+
+# PDM specific
+.pdm.toml
+.pdm-python
+.pdm-build/
+__pypackages__/
+
+# Editor cruft
+.vscode/
+.idea/
+# Vim swap files
+*.sw[op]
+
+# Aeromancy specific
+.doit.db.db
+.env_file
+/wandb/
+ingest/
