@@ -70,7 +70,8 @@ lint.help = "Run linters over all files"
 lint.cmd = "pre-commit run --all-files"
 
 # PDM hook to automatically sort dependencies when they change.
-post_install.shell = "pre-commit run keep-sorted --files pyproject.toml > /dev/null 2> /dev/null"
+# "true" is there since GitHub Actions will fail if this returns a non-zero exit code.
+post_install.shell = "pre-commit run keep-sorted --files pyproject.toml > /dev/null 2> /dev/null; true"
 
 #
 # Standard Aeromancy scripts.
