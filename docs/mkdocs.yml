@@ -1,0 +1,57 @@
+site_name: "aeromancy-demo-housing"
+site_description: "Aeromancy demo (California Housing Prices)"
+site_url: "https://dmcc.github.io/aeromancy-demo-housing"
+repo_url: "https://github.com/dmcc/aeromancy-demo-housing"
+repo_name: "dmcc/aeromancy-demo-housing"
+site_dir: "site"
+
+nav:
+  - Home:
+    - Overview: index.md
+  - Code Reference: reference/
+
+theme:
+  name: material
+  palette:
+    primary: deep purple
+    accent: teal
+  font:
+    text: Open Sans
+    code: Fira Code
+  features:
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.emoji
+  - pymdownx.magiclink
+  - pymdownx.snippets:
+      base_path:
+      - docs
+      - "../README.md"
+      check_paths: true
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tasklist
+  - toc:
+      permalink: "#"
+
+plugins:
+- search
+- gen-files:
+    scripts:
+    - gen_ref_pages.py
+- section-index
+- mkdocstrings:
+    default_handler: python
+    handlers:
+      python:
+        paths: ["../src"]
+        options:
+          docstring_style: numpy
+- literate-nav:
+    nav_file: SUMMARY.md
+
+watch:
+  - "../src"
+  - "../README.md"
