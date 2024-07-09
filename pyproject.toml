@@ -13,7 +13,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     # keep-sorted start
-    "aeromancy @ git+https://github.com/quant-aq/aeromancy",
+    "aeromancy @ git+https://github.com/quant-aq/aeromancy@v0.2.0",
     "joblib>=1.4.2",
     "loguru>=0.7.2",
     "scikit-learn>=1.5.1",
@@ -69,6 +69,9 @@ doc.shell = "cd docs && mkdocs serve -a localhost:8010"
 lint.help = "Run linters over all files"
 lint.cmd = "pre-commit run --all-files"
 
+# PDM hook to automatically sort dependencies when they change.
+post_install.shell = "pre-commit run keep-sorted --files pyproject.toml > /dev/null 2> /dev/null"
+
 #
 # Standard Aeromancy scripts.
 #
@@ -92,9 +95,8 @@ help.cmd = "python src/main.py --help"
 
 aeroset.help = "Use a specific reference/tag/version of Aeromancy"
 aeroset.shell = """pdm remove aeromancy ;
-  pdm add 'git+ssh://git@github.com/quant-aq/aeromancy.git@{args}' &&
-  pdm install &&
-  pre-commit run keep-sorted --files pyproject.toml > /dev/null
+  pdm add 'git+https://github.com/quant-aq/aeromancy@{args}' &&
+  pdm install
 """
 
 [tool.black]
