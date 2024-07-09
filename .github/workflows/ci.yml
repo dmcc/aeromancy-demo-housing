@@ -30,11 +30,6 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: true
 
-      - name: Setup ssh key
-        uses: webfactory/ssh-agent@v0.5.1
-        with:
-          ssh-private-key: ${{ secrets.SSH_KEY }}
-
       - name: Install dependencies
         run: pdm install
 
