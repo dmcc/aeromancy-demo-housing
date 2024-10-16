@@ -15,12 +15,13 @@ aeromancy-demo-housing requires Python >=3.11 and [`pdm`](https://pdm.fming.dev)
 pip install --user pdm
 ```
 
-After cloning this project, you'll need to install dependencies and switch to
-a development branch:
+After cloning this project, you'll need to install dependencies, switch to
+a development branch, and make a directory for our dataset:
 
 ```bash
 pdm install
 git switch --create aeromancy-test
+mkdir ingest
 ```
 
 You'll want to follow the general Aeromancy setup there before running any experiments.
@@ -29,10 +30,15 @@ most complete and up-to-date documentation.
 
 ## Running experiments in Aeromancy
 
-The Aeromancy [`Action`](https://quant-aq.github.io/aeromancy/tasks/)s for these experiments live in
-[`src/aeromancy_demo_housing/actions.py`](https://github.com/dmcc/aeromancy-demo-housing/blob/main/src/aeromancy_demo_housing/actions.py).
-You can try adjusting the [model](https://github.com/dmcc/aeromancy-demo-housing/blob/08fd0e2420dce641d863e36bb51943dfdaf28c57/src/aeromancy_demo_housing/actions.py#L78)
-and see how it affects your evaluation.
+To get started, try running all experiment tasks in development mode:
+
+```bash
+pdm go --dev
+```
+
+The Aeromancy [`Action`](https://quant-aq.github.io/aeromancy/tasks/)s for these tasks live in
+[`src/aeromancy_demo_housing/actions.py`](https://github.com/dmcc/aeromancy-demo-housing/blob/main/src/aeromancy_demo_housing/actions.py). Try adjusting the model in `src/aeromancy_demo_housing/actions.py` (search for
+`LinearRegression`) and rerun `pdm go --dev` see how it affects your evaluation.
 
 To see available command line options (includes options for your experiment as
 well as standard Aeromancy options):
@@ -41,13 +47,7 @@ well as standard Aeromancy options):
 pdm help
 ```
 
-To run all experiment tasks (development mode):
-
-```bash
-pdm go --dev
-```
-
-To run all experiment tasks (production mode):
+To run all experiment tasks in production mode:
 
 ```bash
 pdm go
