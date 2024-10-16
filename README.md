@@ -15,11 +15,30 @@ aeromancy-demo-housing requires Python >=3.11 and [`pdm`](https://pdm.fming.dev)
 pip install --user pdm
 ```
 
+After cloning this project, you'll need to install dependencies, switch to
+a development branch, and make a directory for our dataset:
+
+```bash
+pdm install
+git switch --create aeromancy-test
+mkdir ingest
+```
+
+You'll want to follow the general Aeromancy setup there before running any experiments.
 See the [Aeromancy repository](https://github.com/quant-aq/aeromancy/) for the
-most complete and up-to-date documentation. You'll want to follow the general
-Aeromancy setup there before running any experiments.
+most complete and up-to-date documentation.
 
 ## Running experiments in Aeromancy
+
+To get started, try running all experiment tasks in development mode:
+
+```bash
+pdm go --dev
+```
+
+The Aeromancy [`Action`](https://quant-aq.github.io/aeromancy/tasks/)s for these tasks live in
+[`src/aeromancy_demo_housing/actions.py`](https://github.com/dmcc/aeromancy-demo-housing/blob/main/src/aeromancy_demo_housing/actions.py). Try adjusting the model in `src/aeromancy_demo_housing/actions.py` (search for
+`LinearRegression`) and rerun `pdm go --dev` see how it affects your evaluation.
 
 To see available command line options (includes options for your experiment as
 well as standard Aeromancy options):
@@ -28,13 +47,7 @@ well as standard Aeromancy options):
 pdm help
 ```
 
-To run all experiment tasks (development mode):
-
-```bash
-pdm go --dev
-```
-
-To run all experiment tasks (production mode):
+To run all experiment tasks in production mode:
 
 ```bash
 pdm go
@@ -48,7 +61,7 @@ pdm go
 - `pdm aeroset <version>`: Helper script to update the library version of Aeromancy.
 - `pdm debug_shell`: Open a debug shell in the Docker container.
 
-## Other common development commands
+## Other development commands
 
 - `pdm lint`: Run pre-commit linters
 - `pdm test`: Run test suite
